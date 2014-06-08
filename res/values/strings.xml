@@ -7,7 +7,7 @@
     <string name="ten_percent">10%</string>
     <string name="fifteen_percent">15%</string>
     <string name="twenty_percent">20%</string>
-    <string name="base_amount">$0</string>
+    <string name="base_amount">0</string>
     <string name="tip_string">Tip is:</string>
     <string name="base_tip">$0</string>
 

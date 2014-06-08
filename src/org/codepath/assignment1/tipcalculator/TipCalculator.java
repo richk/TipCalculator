@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,19 +36,7 @@ public class TipCalculator extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				try {
-				    double billAmount = Double.parseDouble(etBaseAmount.getText().toString());
-				    if (billAmount < 0) {
-				        displayBillAmountError("Bill Amount cannot be less than zero");	
-				        return;
-				    } else {
-				    	tvBaseAmountHelper.setText("");
-				    }
-				    double tipAmount = (double)Math.round((billAmount * 0.1) * 100) / 100;
-				    tvTipAmount.setText("$" + String.valueOf(tipAmount));
-				} catch (NumberFormatException nfe) {
-					Log.d(LOG_TAG, "Bill Amount Invalid");
-				}
+				computeAndDisplayTip(0.1);
 			}
 		});
 		bFifteenPercent = (Button) findViewById(R.id.bFifteenPercent);
@@ -58,19 +44,7 @@ public class TipCalculator extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				try {
-				    double billAmount = Double.parseDouble(etBaseAmount.getText().toString());
-				    if (billAmount < 0) {
-				        displayBillAmountError("Bill Amount cannot be less than zero");	
-				        return;
-				    } else {
-				    	tvBaseAmountHelper.setText("");
-				    }
-				    double tipAmount = (double)Math.round((billAmount * 0.15) * 100) / 100;
-				    tvTipAmount.setText("$" + String.valueOf(tipAmount));
-				} catch (NumberFormatException nfe) {
-					Log.d(LOG_TAG, "Bill Amount Invalid");
-				}
+				computeAndDisplayTip(0.15);
 			}
 		});
 		bTwentyPercent = (Button) findViewById(R.id.bTwentyPercent);
@@ -78,22 +52,27 @@ public class TipCalculator extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				try {
-				    double billAmount = Double.parseDouble(etBaseAmount.getText().toString());
-				    if (billAmount < 0) {
-				        displayBillAmountError("Bill Amount cannot be less than zero");	
-				        return;
-				    } else {
-				    	tvBaseAmountHelper.setText("");
-				    }
-				    double tipAmount = (double)Math.round((billAmount * 0.2) * 100) / 100;
-				    tvTipAmount.setText("$" + String.valueOf(tipAmount));
-				} catch (NumberFormatException nfe) {
-					Log.d(LOG_TAG, "Bill Amount Invalid");
-				}
+				computeAndDisplayTip(0.2);
 			}
 		});
 		tvTipAmount = (TextView) findViewById(R.id.tvTipAmount);
+	}
+	
+	public void computeAndDisplayTip(double tipPercent) {
+		try {
+		    double billAmount = Double.parseDouble(etBaseAmount.getText().toString());
+		    if (billAmount < 0) {
+		        displayBillAmountError("Bill Amount cannot be less than zero");	
+		        return;
+		    } else {
+		    	tvBaseAmountHelper.setText("");
+		    }
+		    double tipAmount = (double)Math.round((billAmount * tipPercent) * 100) / 100;
+		    tvTipAmount.setText("$" + String.valueOf(tipAmount));
+		} catch (NumberFormatException nfe) {
+			Log.d(LOG_TAG, "Bill Amount Invalid");
+			displayBillAmountError("Bill Amount must be a number");
+		}	
 	}
 	
 	public void displayBillAmountError(String errorString) {
