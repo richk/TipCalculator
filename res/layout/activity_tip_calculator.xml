@@ -2,16 +2,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".TipCalculator" >
+    
+    <ImageView
+        android:id="@+id/ivBackgroundImage"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/background_image_desc"
+        android:layout_alignParentTop="true" android:src="@drawable/background_image"/>
     
     <LinearLayout 
         android:id="@+id/llBaseAmount"
         android:layout_width="wrap_content"
         android:layout_marginTop="50dip"
+        android:layout_marginLeft="10dip"
         android:layout_height="wrap_content" 
         android:orientation="horizontal" >
         
@@ -38,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dip"
+        android:layout_marginLeft="10dip"
         android:layout_below="@+id/llBaseAmount" 
         android:orientation="vertical" >
         
@@ -65,8 +72,10 @@
                     android:id="@+id/rbTenPercent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:state_checked="true"
                     android:text="@string/ten_percent"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:visibility="visible" />
 
                 <RadioButton
                     android:id="@+id/rbFifteenPercent"
@@ -101,6 +110,7 @@
                 android:singleLine="true"
                 android:width="50dp" 
                 android:layout_toRightOf="@+id/rbTipPercent" />
+            
         </RelativeLayout>
     </LinearLayout>
         
@@ -108,6 +118,7 @@
         android:id="@+id/llNumPeopleLayout"
         android:layout_width="wrap_content"
         android:layout_marginTop="50dip"
+        android:layout_marginLeft="10dip"
         android:layout_height="wrap_content"
         android:layout_below="@+id/llTipPercentLayout" >
 
@@ -132,6 +143,7 @@
         android:id="@+id/llTipResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
         android:layout_below="@+id/llNumPeopleLayout" 
         android:orientation="vertical" >
         

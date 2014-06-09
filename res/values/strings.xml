@@ -14,5 +14,6 @@
     <string name="num_people_string">"Number of people:"</string>
     <string name="base_tip">$0</string>
     <string name="rb_tip_selection">Select Tip Percentage</string>
+    <string name="background_image_desc">Background Image</string>
 
 </resources>
