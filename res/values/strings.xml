@@ -7,13 +7,14 @@
     <string name="fifteen_percent">15%</string>
     <string name="twenty_percent">20%</string>
     <string name="other_percent">other</string>
-    <string name="base_amount_string">Enter Bill Amount</string>
+    <string name="base_amount_string">Enter Bill Amount:</string>
     <string name="base_amount">0</string>
+    <string name="total_bill_amount_string">Total Bill:</string>
     <string name="tip_string">Total Tip:</string>
-    <string name="tip_string_per_person">Tip Per Person</string>
+    <string name="tip_string_per_person">Amount Per Person:</string>
     <string name="num_people_string">"Number of people:"</string>
     <string name="base_tip">$0</string>
-    <string name="rb_tip_selection">Select Tip Percentage</string>
+    <string name="rb_tip_selection">Select Tip Percentage:</string>
     <string name="background_image_desc">Background Image</string>
 
 </resources>

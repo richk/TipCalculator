@@ -36,6 +36,7 @@ public class TipCalculator extends Activity {
 	
 	private EditText etBaseAmount;
 	private RadioGroup rgTipPercent;
+	private TextView tvTotalAmount;
 	private TextView tvTipAmount;
 	private TextView tvBaseAmountHelper;
 	private AutoCompleteTextView acCustomTipPercent;
@@ -127,6 +128,7 @@ public class TipCalculator extends Activity {
 		tvBaseAmountHelper = (TextView) findViewById(R.id.tvBaseAmountHelper);
 		tvTipAmount = (TextView) findViewById(R.id.tvTipAmount);
 		tvTipPerPerson = (TextView) findViewById(R.id.tvTipAmountPerPerson);
+		tvTotalAmount = (TextView) findViewById(R.id.tvTotalBillAmount);
 	}
 	
     public void getTipPercentAndDisplayTip() {
@@ -186,8 +188,9 @@ public class TipCalculator extends Activity {
 		    double tipAmount = (double)Math.round((billAmount * tipPercent) * 100) / 100;
 		    tvTipAmount.setText("$" + String.valueOf(tipAmount));
 		    int numPeople = getNumPeopleSelected();
-		    double tipPerPerson = (double)Math.round((tipAmount/numPeople) *100) / 100;
-		    tvTipPerPerson.setText(String.valueOf(tipPerPerson));
+		    double totalAmount = billAmount + tipAmount;
+		    tvTipPerPerson.setText(String.valueOf(totalAmount/numPeople));
+		    tvTotalAmount.setText(String.valueOf(totalAmount));
 		} catch (NumberFormatException nfe) {
 			Log.d(LOG_TAG, "Bill Amount Invalid");
 			displayBillAmountError("Bill Amount must be a number");
