@@ -26,6 +26,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/base_amount_string"
+            android:typeface="sans"
+            android:shadowColor="#7A7A7A"
+            android:shadowRadius="1.5"
+            android:shadowDx="1"
+            android:shadowDy="1"
             android:textAppearance="?android:attr/textAppearanceMedium" />
         
 
@@ -54,9 +59,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:text="@string/rb_tip_selection"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:typeface="sans"
+            android:shadowColor="#7A7A7A"
+            android:shadowRadius="1.5"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
         
-    
         <RelativeLayout
             android:id="@+id/rlTipPercent"
             android:layout_width="wrap_content"
@@ -74,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:state_checked="true"
                     android:text="@string/ten_percent"
-                    android:textSize="12sp"
+                    android:textSize="15sp"
                     android:visibility="visible" />
 
                 <RadioButton
@@ -82,23 +91,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/fifteen_percent"
-                    android:textSize="12sp" />
+                    android:textSize="15sp" />
 
                 <RadioButton
                     android:id="@+id/rbTwentyPercent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/twenty_percent"
-                    android:textSize="12sp" />
+                    android:textSize="15sp" />
 
                 <RadioButton
                     android:id="@+id/rbCustomPercent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/other_percent"
-                    android:textSize="12sp" />
+                    android:textSize="15sp" />
 
             </RadioGroup>
+            
+            <AutoCompleteTextView 
+                android:id="@+id/autoCustomPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:minWidth="50dip"
+                android:singleLine="true"
+                android:width="100dip" 
+                android:completionThreshold="1"
+                android:layout_toRightOf="@+id/rbTipPercent" />
     
             <EditText
                 android:id="@+id/etCustomPercent"
@@ -109,8 +130,7 @@
                 android:minWidth="30dp"
                 android:singleLine="true"
                 android:width="50dp" 
-                android:layout_toRightOf="@+id/rbTipPercent" />
-            
+                android:layout_toRightOf="@+id/rbTipPercent" />            
         </RelativeLayout>
     </LinearLayout>
         
@@ -120,23 +140,51 @@
         android:layout_marginTop="50dip"
         android:layout_marginLeft="10dip"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llTipPercentLayout" >
+        android:layout_below="@+id/llTipPercentLayout" 
+        android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/tvNumPeople"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/num_people_string"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:typeface="sans"
+            android:shadowColor="#7A7A7A"
+            android:shadowRadius="1.5"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+<!--         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:orientation="horizontal">
+            
+            <Button
+                android:id="@+id/buttonMinus"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-" />
 
-        <EditText
+            <Button
+                android:id="@+id/buttonPlus"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+" />
+            
+
+        </LinearLayout>
+ -->
+        <!-- <EditText
             android:id="@+id/etNumPeople"
             android:layout_width="50dip"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:singleLine="true"
             android:ems="10" >
-        </EditText>    
+        </EditText> -->    
     </LinearLayout>
     
     <LinearLayout 
@@ -159,6 +207,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tip_string"
+                android:typeface="sans"
+                android:shadowColor="#7A7A7A"
+                android:shadowRadius="1.5"
+                android:shadowDx="1"
+                android:shadowDy="1"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
             
             <TextView
@@ -182,6 +235,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tip_string_per_person"
+                    android:typeface="sans"
+                    android:shadowColor="#7A7A7A"
+                    android:shadowRadius="1.5"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
@@ -207,5 +265,20 @@
             android:layout_height="wrap_content"
             android:text="" />
     </LinearLayout>
+
+    
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llNumPeopleLayout"
+        android:layout_toRightOf="@+id/button1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
 
 </RelativeLayout>
