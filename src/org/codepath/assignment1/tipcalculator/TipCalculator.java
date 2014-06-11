@@ -144,6 +144,7 @@ public class TipCalculator extends Activity {
 					displayBillAmountError("Number of people cannot be zero");
 					etNumPeople.setText(String.valueOf(mNumPeople));
 				} else {
+					mNumPeople = numPeople;
 					getTipPercentAndDisplayTip();	
 				}
 				return true;
