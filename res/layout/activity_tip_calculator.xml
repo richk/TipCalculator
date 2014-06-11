@@ -1,127 +1,149 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TipCalculator" >
-    
-    <ImageView
-        android:id="@+id/ivBackgroundImage"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentLeft="true"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/background_image_desc"
-        android:layout_alignParentTop="true" android:src="@drawable/background_image"/>
-    
-    <LinearLayout 
-        android:id="@+id/llBaseAmount"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="50dip"
-        android:layout_marginLeft="10dip"
-        android:layout_height="wrap_content" 
-        android:orientation="horizontal" >
-        
-        <TextView
-            android:id="@+id/tvBillAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/base_amount_string"
-            android:typeface="sans"
-            android:shadowColor="#7A7A7A"
-            android:shadowRadius="1.5"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-        
-        <EditText
-            android:id="@+id/etBillAmount"
-            android:layout_width="60dip"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="numberDecimal"
-            android:singleLine="true"
-            android:text="@string/base_amount" />
+    android:fillViewport="true" >
 
-    </LinearLayout>
-
-    <LinearLayout 
-        android:id="@+id/llTipPercentLayout"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dip"
-        android:layout_marginLeft="10dip"
-        android:layout_below="@+id/llBaseAmount" 
-        android:orientation="vertical" >
-        
-        <TextView
-            android:id="@+id/tvTipPercentSelection"
+        tools:context=".TipCalculator" >
+
+        <ImageView
+            android:id="@+id/ivBackgroundImage"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/background_image_desc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background_image" />
+
+        <LinearLayout
+            android:id="@+id/llBaseAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:text="@string/rb_tip_selection"
-            android:typeface="sans"
-            android:shadowColor="#7A7A7A"
-            android:shadowRadius="1.5"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-        
-        <RelativeLayout
-            android:id="@+id/rlTipPercent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal" >
 
-            <RadioGroup
-                android:id="@+id/rbTipPercent"
+            <TextView
+                android:id="@+id/tvBillAmount"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:orientation="horizontal" >
+                android:layout_height="wrap_content"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="@string/base_amount_string"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:typeface="sans" />
 
-                <RadioButton
-                    android:id="@+id/rbTenPercent"
+            <EditText
+                android:id="@+id/etBillAmount"
+                android:layout_width="60dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:text="@string/base_amount" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llTipPercentLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llBaseAmount"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvTipPercentSelection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="@string/rb_tip_selection"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:typeface="sans" />
+
+            <RelativeLayout
+                android:id="@+id/rlTipPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioGroup
+                    android:id="@+id/rbTipPercent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:state_checked="true"
-                    android:text="@string/ten_percent"
-                    android:textSize="15sp"
-                    android:visibility="visible" />
+                    android:orientation="horizontal" >
 
-                <RadioButton
-                    android:id="@+id/rbFifteenPercent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fifteen_percent"
-                    android:textSize="15sp" />
+                    <RadioButton
+                        android:id="@+id/rbTenPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1.5"
+                        android:state_checked="true"
+                        android:text="@string/ten_percent"
+                        android:textSize="15sp"
+                        android:typeface="sans"
+                        android:visibility="visible" />
 
-                <RadioButton
+                    <RadioButton
+                        android:id="@+id/rbFifteenPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1.5"
+                        android:text="@string/fifteen_percent"
+                        android:textSize="15sp"
+                        android:typeface="sans" />
+
+                    <!--
+                     <RadioButton
                     android:id="@+id/rbTwentyPercent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/twenty_percent"
                     android:textSize="15sp" />
+                    -->
 
-                <RadioButton
-                    android:id="@+id/rbCustomPercent"
+                    <RadioButton
+                        android:id="@+id/rbCustomPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1.5"
+                        android:text="@string/other_percent"
+                        android:textSize="15sp"
+                        android:typeface="sans" />
+                </RadioGroup>
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCustomPercent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/other_percent"
-                    android:textSize="15sp" />
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/rbTipPercent"
+                    android:completionThreshold="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:minWidth="50dip"
+                    android:singleLine="true"
+                    android:width="100dip" />
 
-            </RadioGroup>
-            
-            <AutoCompleteTextView 
-                android:id="@+id/autoCustomPercent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:minWidth="50dip"
-                android:singleLine="true"
-                android:width="100dip" 
-                android:completionThreshold="1"
-                android:layout_toRightOf="@+id/rbTipPercent" />
-    
-            <EditText
+                <!--
+                 <EditText
                 android:id="@+id/etCustomPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,52 +153,67 @@
                 android:singleLine="true"
                 android:width="50dp" 
                 android:layout_toRightOf="@+id/rbTipPercent" />            
-        </RelativeLayout>
-    </LinearLayout>
-        
-    <LinearLayout
-        android:id="@+id/llNumPeopleLayout"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="30dip"
-        android:layout_marginLeft="10dip"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/llTipPercentLayout" 
-        android:orientation="horizontal" >
+                -->
+            </RelativeLayout>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvNumPeople"
+        <LinearLayout
+            android:id="@+id/llNumPeopleLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/num_people_string"
-            android:typeface="sans"
-            android:shadowColor="#7A7A7A"
-            android:shadowRadius="1.5"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-        
-<!--         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:orientation="horizontal">
-            
-            <Button
-                android:id="@+id/buttonMinus"
-                style="?android:attr/buttonStyleSmall"
+            android:layout_below="@+id/llTipPercentLayout"
+            android:layout_marginLeft="10dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tvNumPeople"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-" />
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="@string/num_people_string"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:typeface="sans" />
 
-            <Button
-                android:id="@+id/buttonPlus"
-                style="?android:attr/buttonStyleSmall"
+            <LinearLayout
+                android:id="@+id/llNumPeopleChooser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+" />
-            
+                android:layout_marginLeft="20dp"
+                android:orientation="horizontal" >
 
-        </LinearLayout>
- -->
+                <Button
+                    android:id="@+id/buttonMinus"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:text="-"
+                    android:textColor="#A4C739"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etNumPeople"
+                    android:layout_width="50dip"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:singleLine="true" >
+                </EditText>
+
+                <Button
+                    android:id="@+id/buttonPlus"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:text="+"
+                    android:textColor="#A4C739"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <!--
         <EditText
             android:id="@+id/etNumPeople"
             android:layout_width="50dip"
@@ -184,112 +221,114 @@
             android:inputType="number"
             android:singleLine="true"
             android:ems="10" >
-        </EditText>   
-    </LinearLayout>
-    
-    <LinearLayout 
-        android:id="@+id/llTipResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dip"
-        android:layout_marginTop="30dip"
-        android:layout_below="@+id/llNumPeopleLayout" 
-        android:orientation="vertical" >
-        
-        <LinearLayout 
-            android:id="@+id/llTotalBillAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-            
-            <TextView
-                android:id="@+id/tvTotalBillAmountString"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/total_bill_amount_string"
-                android:typeface="sans"
-                android:shadowColor="#7A7A7A"
-                android:shadowRadius="1.5"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/tvTotalBillAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/base_tip"
-                android:layout_marginLeft="10dip"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </EditText>
+            -->
         </LinearLayout>
-        
-        <LinearLayout 
-            android:id="@+id/llTotalTip"
+
+        <!-- just draw a green line -->
+
+        <View
+            android:id="@+id/greenLine"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-            
-            <TextView
-                android:id="@+id/tvTipString"
+            android:layout_height="2dip"
+            android:layout_below="@id/llNumPeopleLayout"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#A4C739" />
+
+        <TableLayout
+            android:id="@+id/tlTipResult"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/greenLine" >
+
+            <!-- 2 columns -->
+
+            <TableRow
+                android:id="@+id/trTotalAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tip_string"
-                android:typeface="sans"
-                android:shadowColor="#7A7A7A"
-                android:shadowRadius="1.5"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/tvTipAmount"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tvTotalBillAmountString"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:text="@string/total_bill_amount_string"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tvTotalBillAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:text="@string/base_tip"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+            <!-- edittext span 2 column -->
+
+            <TableRow
+                android:id="@+id/trTotalTip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/base_tip"
-                android:layout_marginLeft="10dip"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-        </LinearLayout>
-        
-        <LinearLayout 
-            android:id="@+id/llTipPerPerson"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:orientation="horizontal" >
-            
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tvTipString"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:text="@string/tip_string"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tvTipAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:text="@string/base_tip"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+            <!-- edittext span 2 column -->
+
+            <TableRow
+                android:id="@+id/trPerPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dip" >
+
                 <TextView
                     android:id="@+id/tvTipPerPerson"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tip_string_per_person"
-                    android:typeface="sans"
-                    android:shadowColor="#7A7A7A"
-                    android:shadowRadius="1.5"
+                    android:shadowColor="#FFFFFF"
                     android:shadowDx="1"
                     android:shadowDy="1"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:shadowRadius="1.5"
+                    android:text="@string/tip_string_per_person"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:typeface="sans" />
 
                 <TextView
                     android:id="@+id/tvTipAmountPerPerson"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/base_tip"
                     android:layout_marginLeft="10dip"
+                    android:text="@string/base_tip"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-        </LinearLayout>
-        
-    </LinearLayout>
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
 
-    <LinearLayout 
-        android:id="@+id/llUserTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:layout_below="@+id/llTipResult"
-        android:orientation="horizontal" >
-        <TextView
-            android:id="@+id/tvBaseAmountHelper"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="" />
-    </LinearLayout>
-</RelativeLayout>
+</ScrollView>
